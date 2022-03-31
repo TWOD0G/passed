@@ -1,0 +1,576 @@
+<html lang="ZH-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Platform of ESG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./pic/icon_title.svg" type="image/x-icon">
+    <script src="./js/animate.js" type="text/javascript"></script>
+    <style>
+        @font-face {
+        font-family: dream;
+        src: url(./font/CaviarDreams.ttf);
+    }
+    
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    /* 导航栏样式 */
+    #nav{
+        position: fixed;
+        width: 100%;
+        height: 60px;
+        background-color: rgb(58, 58, 66);
+        display: flex;
+        justify-content: center;
+        z-index: 3;
+    }
+    .trans{
+        position: fixed;
+        top: 10px;
+        right: 40px;
+        width: 40px;
+        height: 40px;
+        background-color: #888888;
+        border-radius: 50%;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        color: rgba(2, 2, 2, 0.309);
+        text-decoration: none;
+        font-family: dream;
+    }
+
+    .trans:link{
+        color: rgba(2, 2, 2, 0.309);
+    }
+    .trans:visited{
+        color: rgba(255, 255, 255, 0.981)
+    }
+    .trans:hover{
+        color: rgba(255, 255, 255, 0.981)
+    }
+    .trans:active{
+        color: rgba(255, 255, 255, 0.981)
+    }
+    
+    #nav ul{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        justify-content: center;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    #nav ul li{
+        width: 200px;
+        font-size: 16px;
+        font-family: dream;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 1.2s;
+        color: white;
+        user-select: none;
+    }
+    
+    
+    #nav ul li:hover a{
+        border-bottom: white solid 1px;
+    }
+    
+    #nav ul li a{
+        text-decoration: none;
+        padding-bottom: 6px;
+    }
+    #nav ul li:hover{
+        background-color:#32CD32;
+    }
+    #nav ul li a:link{
+        color: white;
+    }
+    #nav ul li a:visited{
+        color: white;
+    }
+    #nav ul li a:hover{
+        color: white;
+    }
+    #nav ul li a:active{
+        color: white;
+    }
+    
+    body::-webkit-scrollbar{
+        width: 5px;
+        height: 100%;
+    }
+    body::-webkit-scrollbar-thumb{
+        border-radius: 50%;
+        background-color: white;
+    }
+    body::-webkit-scrollbar-track{
+        background: black;
+    }
+    /* ESG介绍板块样式 */
+    #introduce_up{
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        background-image: linear-gradient(45deg, #74ebd5, #9face6, #f6d365, #fda085, #fccb90, #d57eeb, #74ebd5, #9face6, #f6d365, #fda085, #fccb90, #d57eeb);
+        background-size: 440%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: turn_color 30s linear infinite;
+        min-height: 320px;
+        max-height: 600px;
+    }
+    @keyframes turn_color{
+        0%{
+            background-position: 0% 0%;
+        }
+        50%{
+            background-position: 100% 100%;
+        }
+        100%{
+            background-position: 0% 0%;
+        }
+    }
+    
+    .text{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        user-select: none;
+    }
+    .text:nth-child(1){
+        margin-top: 72px;
+    }
+    .text > p{
+        color: white;
+        font-size: 36px;
+        margin-top: 0px;
+        margin-bottom: 1%;
+        position: relative;
+        font-family: dream;
+        transition: all 1.5s;
+    }
+    
+    .text > p:nth-child(1){
+        position: relative;
+        left: 16%;
+    }
+    .text > p:nth-child(2){
+        position: relative;
+        right: 16%;
+    }
+    
+    #introduce_down{
+        width: 100%;
+        height: 50vh;
+        position: relative;
+        margin-top: 0px;
+        display: flex;
+        justify-content:space-around;
+        background-color: rgb(58, 58, 66);
+        min-height: 240px;
+        overflow-x: hidden;
+    }
+    
+    .down_box{
+        position: relative;
+        border-radius: 10px;
+        width: 16%;
+        height: 80%;
+        margin-top: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        filter: blur(6px);
+        left: 100%;
+        transition: filter 0.6s, opacity 0.6s, left 1.2s ease-out;
+        opacity: 0.1;
+        background-image: linear-gradient(#74ebd5, #9face6);
+    
+    }
+    .down_box:hover{
+        filter: blur(0px);
+        opacity: 1;
+    }
+    .image{
+        width: 20%;
+        height: 0px;
+        padding-bottom: 20%;
+        border-radius: 50%;
+        border: solid 2px rgba(71, 71, 75, 0.781);
+        position: relative;
+        top: 20px;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+    }
+    .down_box:nth-child(1) .image{
+        background-image: url(./pic/Environmental.png);
+    }
+    .down_box:nth-child(2) .image{
+        background-image: url(./pic/Social.png);
+    }
+    .down_box:nth-child(3) .image{
+        background-image: url(./pic/Governance.png);
+    }
+    .down_title{
+        position: relative;
+        font-family: dream;
+        font-size: 24px;
+        user-select: none;
+    }
+    
+    .down_title_ch{
+        position: relative;
+        bottom: 1%;
+        font-family: STXingkai;
+        font-size: 24px;
+        user-select: none;
+    }
+    
+    /* ESG资讯板块样式 */
+    #message{
+        position: relative;
+        width: 100%;
+        height: 1024px;
+        overflow-x: auto;
+        background-image: linear-gradient(to right, #74ebd5, #9face6);
+        text-align: center;
+        padding-top: 60px;
+    }
+    #message::-webkit-scrollbar{
+        display: none;
+    }
+    #message p{
+        color: white;
+        font-size: 35px;
+        font-family: STKaiti;
+        opacity: 0.5;
+        margin-bottom: 0;
+        position: relative;
+    }
+    #m_lbox{
+        width: 1440px;
+        position: absolute;
+        height: 720px;
+        margin-left: calc(50% - 720px);
+        transform: translateY(-50%);
+        top: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .m_lb_box{
+        width: 30%;
+        height: 40%;
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px;
+        border-radius: 15px;
+        background-color: white;
+        /* box-shadow: 10px 10px 50px #888888; */
+        transition: all 0.5s;
+    }
+    .m_lb_box:nth-child(2) .img_box img{
+        width: 250px;
+        height: 150px;
+    }
+    .m_lb_box:nth-child(3) .img_box img{
+        width: 296px;
+        height: 98px;
+    }
+    .m_lb_box:nth-child(4) .img_box img{
+        width: 150px;
+        height: 150px;
+    }
+    .m_lb_box:nth-child(5) .img_box img{
+        width: 400px;
+        height: 200px;
+    }
+    .m_lb_box:nth-child(6) .img_box img{
+        width: 300px;
+        height: 150px;
+    }
+    .img_box img:hover{
+        transform: scale(1.2, 1.2);
+    }
+    .m_lb_box:hover{
+        box-shadow: 20px 20px 40px #888888;
+    }
+    
+    .img_box{
+        width: 400px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img_box img{
+        width: 303px;
+        height: 99px;
+        user-select: none;
+        transition: all 0.5s;
+    }
+    #data{
+        height: 1100px;
+        width: 100%;
+        background: url(./pic/ESG.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+    }
+    #enter{
+        width: 100%;
+        height: 400px;
+        background-color: #888888b9;
+        position: relative;
+        top: 30%;
+        display: flex;
+        justify-content: center;
+    }
+    #enter h1{
+        top: 20%;
+        position: absolute;
+        text-align: center;
+    
+    }
+    #enter_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 80px;
+        background-color: #2196f3;
+        position: absolute;
+        bottom: 20%;
+        border-radius: 45px;
+    }
+    #enter_button:link{
+        text-decoration: none;
+        color: #000000;
+    }
+    #enter_button:visited{
+        color:  #000000;
+        text-decoration: none;
+    }
+    #enter_button:hover{
+        color: white;
+    }
+    #enter_button:active{
+        text-decoration: none;
+    }
+    #enter_button p{
+        font-size: 36px;
+    }
+    #advice{
+        position: relative;
+        width: 100%;
+        height: 900px;
+        background-color: #9face6;
+        text-align: center;
+        font-size: 50px;
+    }
+    #beian{
+        position: relative;
+        width: 100%;
+        height: 200px;
+        background-color: #888888;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: antiquewhite;
+    }
+    #beian a{
+        text-decoration: none;
+    }
+    #beian a:link{
+        color: antiquewhite;
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @media screen and (max-width:1024px){
+        .down_title{
+            font-size: 12px;
+        }
+        .down_title_ch{
+            font-size: 12px;
+        }
+        .text > p{
+            font-size: 16px;
+        }
+        #nav ul li{
+            width: 25%;
+            font-size: 8px;
+        }
+        #nav{
+            height: 48px;
+        }
+        #introduce_down{
+            height: 150vh;
+            flex-direction: column;
+            align-items: center;
+        }
+        .down_box{
+            width: 64%;
+            height: 30%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <a href="../esg/index.html" class="trans">L</a>
+    <nav id="nav">
+        <ul>
+            <li><a href="#introduce_up">Introduction</a></li>
+            <li><a href="#message">Information</a></li>
+            <li><a href="#data">Data</a></li>
+            <li><a href="">Advice</a></li>
+        </ul>
+    </nav>
+    <div id="introduce_up">
+            <div class="text">
+                <p>E</p>
+                <p>Environmental</p>
+            </div>
+            <div class="text">
+                <p>S</p>
+                <p>Social</p>
+            </div>
+            <div class="text">
+                <p>G</p>
+                <p>Governance</p>
+            </div>
+    </div>
+    <div id="introduce_down">
+                <div class="down_box">
+                    <div class="image"></div>
+                    <div class="down_title">E</div>
+                    <div class="down_title_ch">Environmental</div>
+                </div>
+                <div class="down_box">
+                    <div class="image"></div>
+                    <div class="down_title">S</div>
+                    <div class="down_title_ch">Social</div>
+                </div>
+                <div class="down_box">
+                    <div class="image"></div>
+                    <div class="down_title">G</div>
+                    <div class="down_title_ch">Governance</div>
+                </div>
+    </div>
+    <div id="message">
+        <p id="message_">ESG资讯相关网站</p>
+        <div id="m_lbox">
+            <div class="m_lb_box" title="百度">
+                <a href="https://esg.baidu.com/" class="a" target="_blank">
+                    <div class="img_box">
+                        <img src="https://www.baidu.com/img/flexible/logo/pc/result@2.png" alt="loading">  
+                      </div>
+                </a>
+            </div>
+            <div class="m_lb_box" title="新浪">
+                <a href="https://finance.sina.com.cn/esg/" class="a" target="_blank">
+                    <div class="img_box">
+                        <img src="./pic//weibo_logo.png" alt="loading">  
+                      </div>
+                </a>
+            </div>
+            <div class="m_lb_box" title="路孚特">
+                <a href="https://www.refinitiv.cn/zh/sustainable-finance/esg-investing" class="a" target="_blank">
+                    <div class="img_box">
+                        <img src="./pic/re_logo.jpg" alt="loading">  
+                      </div>
+                </a>
+            </div>
+            <div class="m_lb_box" title="慧甚">
+                <a href="https://www.factset.com/zh/" class="a" target="_blank">
+                    <div class="img_box">
+                        <img src="./pic/factset-logo.svg" alt="loading">  
+                      </div>
+                </a>
+            </div>
+            <div class="m_lb_box" title="ESG_zh">
+                <a href="http://esgzh.com/" class="a" target="_blank">
+                    <div class="img_box">
+                        <img src="./pic/ESG_zh_logo.svg" alt="loading">  
+                      </div>
+                </a>
+            </div>
+            <div class="m_lb_box">
+                <a href="https://esg.moodys.io/" class="a" target="_blank">
+                    <div class="img_box">
+                        <img src="./pic/moody_logo.svg" alt="loading">  
+                      </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="data">
+        <div id="enter">
+            <h1>请点击下方按钮，跳转至数据录入页面输入数据</h1>
+            <a id="enter_button" href="#">
+                <P>Input Information</P>
+            </a>
+        </div>
+    </div>
+    <div id="advice"> no mention </div>
+    <div id="beian"><a href="https://beian.miit.gov.cn">粤ICP备2022026304号</a></div>
+</body>
+</html>

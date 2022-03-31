@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ZH-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息录入界面</title>
+    <link rel="icon" href="./pic/icon.svg" type="image/x-icon">
+    <script src="input.js" type="text/Javascript"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        #left{
+            height: 100vh;
+            width: 240px;
+            background-image: url(./pic//left.webp);
+            background-size: cover;
+
+        }
+        #right{
+            height: 100vh;
+            width: calc(100vw - 240px);
+            display: flex;
+            flex-grow: none;
+            position: relative;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-behavior:smooth
+        }
+        .item{
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+        }
+        .content{
+            width: auto;
+            height: auto;
+            font-size: 40px;
+            font-weight: 400;
+            font-family: SimHei;
+            user-select: none;
+            position: relative;
+            cursor: pointer;
+            color: white;
+        }
+        .item:nth-child(1)>.content{
+            color: #fd891d;
+        }
+        .content::before{
+            content: attr(data-text);
+            position: absolute;
+            color: #fd891d;
+            overflow: hidden;
+            word-break: keep-all;
+            transition: all 0.8s;
+            width: 0;
+        }
+        .content:hover::before{
+            width: 100%;
+        }
+        .right_content{
+            width: 100%;
+            height: 3000px;
+            flex-shrink: 0;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .right_content:nth-child(1){
+            background-image: url(./pic/E.webp);
+        }
+        .right_content:nth-child(2){
+            background-image: url(./pic/S.webp);
+        }
+        .right_content:nth-child(3){
+            background-image: url(./pic/G.webp);
+        }
+        .Item{
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+        .superclass{
+            width: 100%;
+            height: 60px;
+            color: white;
+            font-family: SimHei;
+            display: flex;
+            align-items: center;
+            font-size: 36px;
+            margin-left:24px;
+        }
+        .childclass_box{
+            width: 100%;
+            height: auto;
+
+        }
+        .childclass_item{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .item_name{
+            width: 540px;
+            height: 24px;
+            margin-left: 24px;
+            color: white;
+            display: flex;
+            align-items: center;
+            cursor: help;
+            z-index: 20;
+        }
+        input{
+            outline: none;
+            height: 24px;
+            width: 400px;
+            border-radius: 15px;
+            margin-left: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+        }
+        .unity{
+            height: 24px;
+            width: 48px;
+            margin-left: 12px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        .submit{
+            position: fixed;
+            bottom: 60px;
+            left: 60px;
+            width: 120px;
+            height: 60px;
+            margin: 0;
+            border: 0;
+        }
+        .submit:hover{
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div id="left">
+        <div class="item">
+            <div class="content" data-text="环境" onclick="f_e(this)">环境</div>
+        </div>
+        <div class="item">
+            <div class="content" data-text="社会" onclick="f_s(this)">社会</div>
+        </div>
+        <div class="item">
+            <div class="content" data-text="公司治理" onclick="f_g(this)">公司治理</div>
+        </div>
+    </div>
+    <form id="right" action="#" method="post">
+            <div class="right_content">
+                <div class="Item">
+                    <div class="superclass">废气数据</div>
+                        <div class="childclass_box">
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>1. 颗粒物排放量:</div>
+                                <input type="number" id="E_A_1"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>2. 二氧化硫排放量:</div>
+                                <input type="number" id="E_A_2"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>3. 氮氧化物排放量:</div>
+                                <input type="number" id="E_A_3"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>4. 一氧化碳排放量:</div>
+                                <input type="number" id="E_A_4"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>5. 其他废气污染物排放量:</div>
+                                <input type="number" id="E_A_5"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">温室气体</div>
+                        <div class="childclass_box">
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>1. 温室气体排放总量:</div>
+                                <input type="number" id="E_B_1"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>2. 温室气体减排量:</div>
+                                <input type="number" id="E_B_2"/>
+                                <div class="unity">m³/年</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">废水</div>
+                        <div class="childclass_box">
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>1. 废水排放总量:</div>
+                                <input type="number" id="E_C_1"/>
+                                <div class="unity">升</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>2. 废水减排量:</div> 
+                                <input type="number" id="E_C_2"/>
+                                <div class="unity">升</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">废弃物</div>
+                        <div class="childclass_box">
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>1. 废弃物产生量:</div>
+                                <input type="number" id="E_D_1"/>
+                                <div class="unity">kg</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>2. 废弃物再利用量:</div>
+                                <input type="number" id="E_D_2"/>
+                                <div class="unity">kg</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>3. 废弃物回收量:</div>
+                                <input type="number" id="E_D_3"/>
+                                <div class="unity">kg</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>4. 废弃物填埋量:</div>
+                                <input type="number" id="E_D_4"/>
+                                <div class="unity">kg</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>5. 废弃物就地储存量:</div>
+                                <input type="number" id="E_D_5"/>
+                                <div class="unity">kg</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">能源</div>
+                        <div class="childclass_box">
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>1. 电力消耗量:</div>
+                                <input type="number" id="E_E_1"/>
+                                <div class="unity">千瓦/时</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>2. 汽油消耗量:</div>
+                                <input type="number" id="E_E_2"/>
+                                <div class="unity">吨</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>3. 柴油消耗量:</div>
+                                <input type="number" id="E_E_3"/>
+                                <div class="unity">吨</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>4. 煤消耗量:</div>
+                                <input type="number" id="E_E_4"/>
+                                <div class="unity">吨</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>5. 天然气消耗量:</div>
+                                <input type="number" id="E_E_5"/>
+                                <div class="unity">吨</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>6. 电力资源消耗减少量:</div>
+                                <input type="number" id="E_E_6"/>
+                                <div class="unity">吨</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">耗水</div>
+                        <div class="childclass_box">
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>1. 总耗水量:</div>
+                                <input type="number" id="E_F_1"/>
+                                <div class="unity">升</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>2. 市政供水:</div>
+                                <input type="number" id="E_F_2"/>
+                                <div class="unity">升</div>
+                            </div>
+                            <div class="childclass_item">
+                                <div class="item_name"   title='二氧化碳一氧化碳二氧化硫都属于废气'>3. 循环用水总量:</div>
+                                <input type="number" id="E_F_3"/>
+                                <div class="unity">升</div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="right_content">
+                <div class="Item">
+                    <div class="superclass">产品质量数据</div>
+                    <div class="childclass_box">
+                        <div class="childclass_item">
+                            <div class="item_name">1. 产品因安全健康问题收回数占比:</div>
+                            <input type="number" id="S_A_1"/>
+                            <div class="unity">%</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">2. 接受产品服务投诉次数:</div>
+                            <input type="number" id="S_A_2"/>
+                            <div class="unity">次</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">职业健康与安全数据</div>
+                    <div class="childclass_box">
+                        <div class="childclass_item">
+                            <div class="item_name">1. 因工伤损失工作日数:</div>
+                            <input type="number" id="S_B_1"/>
+                            <div class="unity">天</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">2. 人均因工伤损失工作日数:</div>
+                            <input type="number" id="S_B_2"/>
+                            <div class="unity">天</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">3. 因工作关系而死亡的员工总数:</div>
+                            <input type="number" id="S_B_3"/>
+                            <div class="unity">天</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">4. 因工作关系而死亡的比例:</div>
+                            <input type="number" id="S_B_4"/>
+                            <div class="unity">%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">社会公益数据</div>
+                    <div class="childclass_box">
+                        <div class="childclass_item">
+                            <div class="item_name">1. 每股社会贡献值:</div>
+                            <input type="number" id="S_C_1"/>
+                            <div class="unity">元</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">2. 社会公益投入总金额:</div>
+                            <input type="number" id="S_C_2"/>
+                            <div class="unity">元</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">3. 员工志愿活动参与人次:</div>
+                            <input type="number" id="S_C_3"/>
+                            <div class="unity">人次</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">4. 员工志愿活动人均时长:</div>
+                            <input type="number" id="S_C_4"/>
+                            <div class="unity">小时</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">供应商数据</div>
+                    <div class="childclass_box">
+                        <div class="childclass_item">
+                            <div class="item_name">1. 供应商总数:</div>
+                            <input type="number" id="E_E_1"/>
+                            <div class="unity">g</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">2. 开展环境影响评估的供应商总数:</div>
+                            <input type="number" id="E_E_2"/>
+                            <div class="unity">个</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">3. 开展了社会影响评估的供应商总数:</div>
+                            <input type="number" id="E_E_3"/>
+                            <div class="unity">个</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">4. 确定具有实际或潜在的重大负面环境影响的供应商总数:</div>
+                            <input type="number" id="E_E_4"/>
+                            <div class="unity">个</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Item">
+                    <div class="superclass">反贪污数据</div>
+                    <div class="childclass_box">
+                        <div class="childclass_item">
+                            <div class="item_name">1. 监管部门对发行人或其雇员提出并已审结的贪污诉讼案件数目:</div>
+                            <input type="number" id="E_F_1"/>
+                            <div class="unity">件</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">2. 反贪污培训次数:</div>
+                            <input type="number" id="E_F_2"/>
+                            <div class="unity">次</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">3. 反贪污培训人次:</div>
+                            <input type="number" id="E_F_3"/>
+                            <div class="unity">人次</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_content">
+                <div class="Item">
+                    <div class="superclass">员工数据</div>
+                    <div class="childclass_box">
+                        <div class="childclass_item">
+                            <div class="item_name">1. 员工总数:</div>
+                            <input type="number" id="G_A_1"/>
+                            <div class="unity">个</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">2. 员工培训率:</div>
+                            <input type="number" id="G_A_2"/>
+                            <div class="unity">%</div>
+                        </div>
+                        <div class="childclass_item">
+                            <div class="item_name">3. 员工流失数:</div>
+                            <input type="number" id="G_A_3"/>
+                            <div class="unity">个</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="submit">
+        </form>
+</body>
+</html>
